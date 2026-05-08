@@ -1,4 +1,6 @@
+import Image from 'next/image'
 import Reveal from './Reveal'
+import Alex from '../assets/images/alex.jpg'
 
 export default function IntroAbout() {
   const go = (id: string) =>
@@ -19,17 +21,7 @@ export default function IntroAbout() {
         <Reveal>
           <div className="relative photo-frame-offset max-w-[400px]">
             <div className="relative overflow-hidden" style={{ aspectRatio: '3/4' }}>
-              {/*
-                ── REPLACE THE DIV BELOW WITH YOUR PHOTO ──
-                <img src="/images/you.jpg" alt="Your Name" className="w-full h-full object-cover block relative z-10" />
-              */}
-              <div className="w-full h-full bg-photo-placeholder flex flex-col items-center justify-center gap-4 relative z-10">
-                <span className="text-[52px] opacity-35">🧑‍💻</span>
-                <p className="font-mono text-[9px] tracking-[0.2em] text-muted uppercase text-center leading-loose px-6">
-                  Your photo here<br />
-                  <span className="text-accent text-[8px]">Replace with &lt;img className="photo-img"&gt;</span>
-                </p>
-              </div>
+              <Image src={Alex} alt="Alex" fill quality={100} sizes="400px" className="object-cover object-top" />
             </div>
 
             {/* Floating tag */}
@@ -55,18 +47,18 @@ export default function IntroAbout() {
           </Reveal>
 
           <Reveal delay={0.06}>
-            <div
-              className="font-display text-fg leading-none tracking-wide mb-5"
+            <h2
+              className="font-display text-fg leading-none tracking-tight mb-5"
               style={{ fontSize: 'clamp(44px, 5.5vw, 80px)' }}
             >
               HI, I'M<br />
-              <span className="text-accent">YOUR NAME</span>
-            </div>
+              <span className="text-accent">Alexandria!</span>
+            </h2>
           </Reveal>
 
           <Reveal delay={0.1}>
             <div className="flex items-center gap-2.5 mb-8 flex-wrap">
-              {['Full-Stack Developer', 'CRO Specialist', 'WebGL Engineer'].map((r, i) => (
+              {['Full-Stack Developer', 'CRO Specialist', 'Web Solutions Architect'].map((r, i) => (
                 <span key={r} className="flex items-center gap-2.5">
                   <span className="w-1 h-1 rounded-full bg-accent/60 flex-shrink-0" />
                   <span className="font-mono text-[10px] tracking-[0.3em] text-muted uppercase">{r}</span>

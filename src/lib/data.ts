@@ -112,4 +112,4 @@ export const STATS = [
   { n: '$12M',s: '+', l: 'Revenue generated' },
 ]
 
-export const STACK = ['WebGL','Three.js','React','Next.js','GSAP','Node.js','PostgreSQL','TypeScript','CRO','A/B Testing','Tailwind','Figma']
+export const STACK = ['WebGL','Three.js','React','Next.js','GSAP','Node.js','SQL','TypeScript','CRO','A/B Testing','Tailwind','PHP','CMS']

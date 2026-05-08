@@ -29,9 +29,9 @@ export default function Nav() {
       <button
         onClick={() => go('home')}
         data-hover
-        className="font-display text-[20px] tracking-[0.35em] text-fg cursor-none"
+        className={`font-display text-[20px] tracking-[0.35em] cursor-none transition-colors duration-500 ${scrolled ? 'text-fg' : 'text-white'}`}
       >
-        DEV<span className="text-accent">.</span>FOLIO
+        Lex<span className="text-accent">.</span>FOLIO
       </button>
 
       {/* Links */}
@@ -41,7 +41,7 @@ export default function Nav() {
             <button
               onClick={() => go(l)}
               data-hover
-              className="nav-link font-mono text-[10px] tracking-[0.3em] text-muted hover:text-fg uppercase cursor-none"
+              className={`nav-link ${scrolled ? 'nav-link--dark' : ''} font-mono text-[10px] tracking-[0.3em] uppercase cursor-none transition-colors duration-500 ${scrolled ? 'text-fg/70 hover:text-fg' : 'text-white hover:text-white/60'}`}
             >
               {l}
             </button>

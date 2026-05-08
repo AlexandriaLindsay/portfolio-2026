@@ -22,20 +22,20 @@ export default function Loader({ onDone }: { onDone: () => void }) {
 
   return (
     <div
-      className={`fixed inset-0 z-[9000] bg-accent flex flex-col items-center justify-center transition-opacity duration-700 ${out ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+      className={`fixed inset-0 z-[9000] bg-white flex flex-col items-center justify-center transition-opacity duration-700 ${out ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
     >
-      <div className="font-display text-white tracking-[0.7em]" style={{ fontSize: 'clamp(40px,7vw,80px)' }}>
-        DEV<span className="text-white/60">.</span>FOLIO
+      <div className="font-display text-accent tracking-[0.7em]" style={{ fontSize: 'clamp(40px,7vw,80px)' }}>
+        LEX<span className="text-accent/60">.</span>FOLIO
       </div>
 
-      <div className="mt-12 w-64 h-px bg-white/20 overflow-hidden">
+      <div className="mt-12 w-64 h-px bg-accent/20 overflow-hidden">
         <div
-          className="h-full bg-white loader-bar-transition"
+          className="h-full bg-accent loader-bar-transition"
           style={{ width: `${progress}%` }}
         />
       </div>
 
-      <div className="mt-4 font-mono text-[10px] tracking-[0.35em] text-white/60">
+      <div className="mt-4 font-mono text-[10px] tracking-[0.35em] text-accent/60">
         {Math.round(progress).toString().padStart(3, '0')} %
       </div>
     </div>

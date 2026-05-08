@@ -1,6 +1,24 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+
+function CountUp({ to, active, duration = 1600 }: { to: number; active: boolean; duration?: number }) {
+  const [val, setVal] = useState(0)
+  useEffect(() => {
+    if (!active) return
+    let start: number | null = null
+    let raf: number
+    const step = (ts: number) => {
+      if (start === null) start = ts
+      const p = Math.min((ts - start) / duration, 1)
+      setVal(Math.round((1 - Math.pow(1 - p, 3)) * to))
+      if (p < 1) raf = requestAnimationFrame(step)
+    }
+    raf = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(raf)
+  }, [active, to, duration])
+  return <>{val}</>
+}
 import * as THREE from 'three'
 import { STATS } from '@/lib/data'
 
@@ -76,10 +94,22 @@ export default function Hero({ loaded }: HeroProps) {
     // Torus knot
     const kg = new THREE.TorusKnotGeometry(1.7, .4, 220, 26, 2, 3)
     const km = new THREE.ShaderMaterial({
-      wireframe: true, transparent: true,
-      uniforms: { uT: { value: 0 }, uC: { value: new THREE.Color('#9b45cc') } },
-      vertexShader: `uniform float uT; varying vec3 vP; void main(){ vP=position; vec3 p=position+normal*sin(uT*.8+length(position)*1.6)*.07; gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.); }`,
-      fragmentShader: `uniform vec3 uC; varying vec3 vP; void main(){ float g=1.-smoothstep(0.,2.8,length(vP)); gl_FragColor=vec4(uC,g*.22); }`,
+      uniforms: { uT: { value: 0 } },
+      vertexShader: `
+        uniform float uT; varying vec3 vN;
+        void main(){
+          vN=normalize(normalMatrix*normal);
+          vec3 p=position+normal*sin(uT*.8+length(position)*1.6)*.07;
+          gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.);
+        }`,
+      fragmentShader: `
+        varying vec3 vN;
+        void main(){
+          float t=vN.y*.5+.5;
+          vec3 a=vec3(.78,.38,.99);
+          vec3 b=vec3(.36,.10,.82);
+          gl_FragColor=vec4(mix(b,a,t),1.);
+        }`,
     })
     const knot = new THREE.Mesh(kg, km)
     knot.position.set(3.8, .6, -1.5)
@@ -166,7 +196,7 @@ export default function Hero({ loaded }: HeroProps) {
   return (
     <section
       id="home"
-      className="relative h-screen overflow-hidden flex flex-col justify-end"
+      className="relative h-[117vh] overflow-hidden flex flex-col justify-end"
       style={{ background: '#1a0a2e', paddingBottom: '80px' }}
     >
       {/* 3D Canvas */}
@@ -182,7 +212,7 @@ export default function Hero({ loaded }: HeroProps) {
 
         {/* H1 */}
         <h1
-          className="hero-anim-2 font-display text-white leading-none tracking-wide"
+          className="hero-anim-2 font-display text-white leading-none tracking-tight"
           style={{ fontSize: 'clamp(72px, 11vw, 175px)', lineHeight: '0.88' }}
         >
           BUILDING SITES<br />
@@ -202,14 +232,20 @@ export default function Hero({ loaded }: HeroProps) {
 
         {/* Stats */}
         <div className="hero-anim-4 flex gap-12 mt-12 flex-wrap">
-          {STATS.map(({ n, s, l }) => (
-            <div key={l}>
-              <div className="font-display text-white leading-none" style={{ fontSize: 42 }}>
-                {n}<span style={{ color: '#a855f7' }}>{s}</span>
+          {STATS.map(({ n, s, l }) => {
+            const m = n.match(/^(\D*)(\d+)(\D*)$/)
+            const pre = m?.[1] ?? ''
+            const num = parseInt(m?.[2] ?? '0')
+            const suf = m?.[3] ?? ''
+            return (
+              <div key={l}>
+                <div className="font-display text-white leading-none" style={{ fontSize: 42 }}>
+                  {pre}<CountUp to={num} active={loaded} />{suf}<span style={{ color: '#a855f7' }}>{s}</span>
+                </div>
+                <div className="font-mono text-[9px] tracking-[0.3em] text-white/45 uppercase mt-1.5">{l}</div>
               </div>
-              <div className="font-mono text-[9px] tracking-[0.3em] text-white/45 uppercase mt-1.5">{l}</div>
-            </div>
-          ))}
+            )
+          })}
         </div>
 
         {/* CTAs */}
