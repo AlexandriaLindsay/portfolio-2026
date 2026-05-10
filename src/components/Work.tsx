@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import NextImage from 'next/image'
 import Reveal from './Reveal'
 import { PROJECTS, SECTIONS } from '@/lib/data'
@@ -14,7 +14,7 @@ function ProjectCard({ project, onOpen }: { project: Project; onOpen: (p: Projec
   return (
     <Reveal>
       <div
-        className="relative cursor-none group bg-white border border-accent/15 overflow-hidden transition-all duration-400 hover:-translate-y-1 hover:shadow-purple hover:border-accent"
+        className="relative cursor-none group bg-white border border-accent/15 overflow-hidden transition-all duration-400 hover:-translate-y-1 hover:shadow-purple hover:border-accent/20"
         onClick={() => onOpen(project)}
         data-hover
       >
@@ -124,6 +124,65 @@ function ProjectCard({ project, onOpen }: { project: Project; onOpen: (p: Projec
   )
 }
 
+/* ── Section Carousel ── */
+function SectionCarousel({ projects, onOpen }: { projects: Project[]; onOpen: (p: Project) => void }) {
+  const trackRef = useRef<HTMLDivElement>(null)
+  const [canPrev, setCanPrev] = useState(false)
+  const [canNext, setCanNext] = useState(projects.length > 2)
+
+  function slide(dir: -1 | 1) {
+    const el = trackRef.current
+    if (!el) return
+    const cardW = el.offsetWidth / 2 + 14
+    el.scrollBy({ left: dir * cardW, behavior: 'smooth' })
+  }
+
+  function onScroll() {
+    const el = trackRef.current
+    if (!el) return
+    setCanPrev(el.scrollLeft > 4)
+    setCanNext(el.scrollLeft < el.scrollWidth - el.offsetWidth - 4)
+  }
+
+  return (
+    <div className="relative">
+      {/* Track */}
+      <div
+        ref={trackRef}
+        onScroll={onScroll}
+        className="flex gap-7 overflow-x-auto scroll-smooth"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' } as React.CSSProperties}
+      >
+        {projects.map(p => (
+          <div key={p.id + p.section} className="flex-shrink-0" style={{ width: 'calc(50% - 14px)' }}>
+            <ProjectCard project={p as Project} onOpen={onOpen} />
+          </div>
+        ))}
+      </div>
+
+      {/* Arrows */}
+      {canPrev && (
+        <button
+          onClick={() => slide(-1)}
+          data-hover
+          className="absolute -left-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-accent/15 flex items-center justify-center text-accent hover:bg-accent hover:text-white hover:border-accent transition-all duration-200 cursor-none shadow-purple-sm"
+        >
+          ←
+        </button>
+      )}
+      {canNext && (
+        <button
+          onClick={() => slide(1)}
+          data-hover
+          className="absolute -right-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-accent/15 flex items-center justify-center text-accent hover:bg-accent hover:text-white hover:border-accent transition-all duration-200 cursor-none shadow-purple-sm"
+        >
+          →
+        </button>
+      )}
+    </div>
+  )
+}
+
 /* ── Modal ── */
 function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
   useEffect(() => {
@@ -161,7 +220,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           <button
             onClick={onClose}
             data-hover
-            className="w-8 h-8 border-[1.5px] border-accent/15 bg-transparent flex items-center justify-center text-[14px] text-muted hover:bg-accent hover:border-accent hover:text-white transition-all duration-200 cursor-none flex-shrink-0"
+            className="w-8 h-8 border-[1.5px] border-accent/15 bg-transparent flex items-center justify-center text-[14px] text-muted hover:bg-accent hover:border-accent/20 hover:text-white transition-all duration-200 cursor-none flex-shrink-0"
           >
             ✕
           </button>
@@ -301,11 +360,7 @@ export default function Work() {
                   </p>
                 </div>
               </Reveal>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
-                {projects.map(p => (
-                  <ProjectCard key={p.id} project={p as Project} onOpen={setActive} />
-                ))}
-              </div>
+              <SectionCarousel projects={projects as Project[]} onOpen={setActive} />
             </div>
           )
         })}
