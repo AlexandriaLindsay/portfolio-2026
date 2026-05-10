@@ -164,14 +164,30 @@ export const PROJECTS = [
     featured: false,
   },
   
-
+  {
+    id: 'telematics',
+    section: 'tools' as ProjectSection,
+    title: 'Telematics Dashboard',
+    cat: 'Productivity · All-in-one Workspace',
+    desc: 'Viral product-led growth with a homepage that converts curiosity into sign-ups through progressive storytelling.',
+    image: '/images/telematics-dashboard.png',
+    disclaimer: true,
+    tags: ['React', 'Framer', 'Content Strategy', 'Viral Loops'],
+    metrics: [
+      { n: '30M+', l: 'Active users' },
+      { n: '$10B', l: 'Valuation' },
+    ],
+    body: "Notion's growth is a case study in product virality. Their web presence is deceptively simple — clean, typographic, and relentlessly focused on 'show don't tell'.",
+    featured: false,
+  },
   {
     id: 'greattaste',
     section: 'tools' as ProjectSection,
-    title: 'Great Taste SMB',
+    title: 'Volume Calulator Tool',
     cat: 'SaaS · Project Management',
     desc: 'Beautifully engineered product-led growth site. Sub-second load, keyboard-first UX, and a landing page that converts at 4× industry average.',
     url: 'https://diamondconstruction.ca/construction-products/#calculator',
+    image: '/images/volume-calculator.png',
     tags: ['Next.js', 'Framer Motion', 'TypeScript', 'CRO'],
     metrics: [
       { n: '4.2s',  l: 'Avg session time' },
@@ -183,10 +199,11 @@ export const PROJECTS = [
   {
     id: 'ashland',
     section: 'tools' as ProjectSection,
-    title: 'Ashland Industries',
+    title: 'Lead Generation Tool',
     cat: 'Industrial · Lead Gen',
     desc: 'Viral product-led growth with a homepage that converts curiosity into sign-ups through progressive storytelling.',
     url: 'https://ashlandind.com/scraper-selector/',
+    image: '/images/ashland-scraper-selector.png',
     tags: ['React', 'Framer', 'Content Strategy', 'Viral Loops'],
     metrics: [
       { n: '30M+', l: 'Active users' },
@@ -196,13 +213,15 @@ export const PROJECTS = [
     featured: false,
   },
 
+
   {
-    id: 'telematics',
+    id: 'ka-sales',
     section: 'tools' as ProjectSection,
-    title: 'Telematics Dashboard',
+    title: 'KA Sales Dashboard',
     cat: 'Productivity · All-in-one Workspace',
     desc: 'Viral product-led growth with a homepage that converts curiosity into sign-ups through progressive storytelling.',
-    image: '/images/telematics.svg',
+    image: '/images/sales-dashboard.png',
+    badge: true,
     tags: ['React', 'Framer', 'Content Strategy', 'Viral Loops'],
     metrics: [
       { n: '30M+', l: 'Active users' },
@@ -211,13 +230,14 @@ export const PROJECTS = [
     body: "Notion's growth is a case study in product virality. Their web presence is deceptively simple — clean, typographic, and relentlessly focused on 'show don't tell'.",
     featured: false,
   },
-  {
+    {
     id: 'ka-sales',
     section: 'tools' as ProjectSection,
-    title: 'KA Sales Dashboard',
+    title: 'Employee Lunch Ordering System',
     cat: 'Productivity · All-in-one Workspace',
     desc: 'Viral product-led growth with a homepage that converts curiosity into sign-ups through progressive storytelling.',
-    url: 'https://sales.kagroup.com/login/',
+    image: '/images/lunch-ordering-system.png',
+    badge: true,
     tags: ['React', 'Framer', 'Content Strategy', 'Viral Loops'],
     metrics: [
       { n: '30M+', l: 'Active users' },

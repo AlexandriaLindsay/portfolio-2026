@@ -64,7 +64,7 @@ function ProjectCard({ project, onOpen }: { project: Project; onOpen: (p: Projec
               {project.disclaimer && (
                 <div className="absolute bottom-2 left-2 bg-fg/70 px-2 py-1 backdrop-blur-sm">
                   <span className="font-mono text-[8px] tracking-[0.15em] text-white/80 uppercase italic">
-                    * Image edited to protect the company
+                    * Image edited to protect confidentiality
                   </span>
                 </div>
               )}
