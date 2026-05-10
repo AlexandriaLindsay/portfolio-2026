@@ -31,7 +31,7 @@ export default function IntroAbout() {
 
             {/* Badge */}
             <div className="absolute -bottom-5 -right-5 z-10 w-[90px] h-[90px] rounded-full bg-accent flex flex-col items-center justify-center shadow-badge">
-              <span className="font-display text-[26px] text-white leading-none">8+</span>
+              <span className="font-display text-[26px] text-white leading-none">9+</span>
               <span className="font-mono text-[7px] tracking-[0.2em] text-white/85 uppercase mt-0.5 text-center">Years Exp.</span>
             </div>
           </div>
@@ -58,7 +58,7 @@ export default function IntroAbout() {
 
           <Reveal delay={0.1}>
             <div className="flex items-center gap-2.5 mb-8 flex-wrap">
-              {['Full-Stack Developer', 'CRO Specialist', 'Web Solutions Architect'].map((r, i) => (
+              {['Full-Stack Developer', 'CRO Specialist', 'Web Architect', 'Business Systems Integrator'].map((r) => (
                 <span key={r} className="flex items-center gap-2.5">
                   <span className="w-1 h-1 rounded-full bg-accent/60 flex-shrink-0" />
                   <span className="font-mono text-[10px] tracking-[0.3em] text-muted uppercase">{r}</span>
@@ -69,12 +69,14 @@ export default function IntroAbout() {
             <p className="font-serif text-muted leading-[1.95] mb-5" style={{ fontSize: 'clamp(15px,1.3vw,17px)' }}>
               I'm a full-stack developer who believes the best websites{' '}
               <strong className="text-fg italic font-normal">earn their keep.</strong>{' '}
-              Not just beautiful — but measurably, provably effective at driving revenue.
+              Not just beautiful, but measurably and provably effective at driving revenue.
             </p>
             <p className="font-serif text-muted leading-[1.95]" style={{ fontSize: 'clamp(15px,1.3vw,17px)' }}>
               With <strong className="text-fg italic font-normal">8+ years of real-world client work</strong>, I've built
-              everything from real-time fintech dashboards to Awwwards-winning WebGL experiences — always asking:{' '}
-              <em>will this move the needle?</em>
+              everything from real-time telematics dashboards to custom business solutions, always asking:{' '}
+              <em>will this move the needle? </em>
+              Beyond design and development, I integrate websites with core business systems such as ERP, CRM, inventory, and
+              operational software to streamline workflows, reduce manual work, and create systems that scale.
             </p>
 
             <div className="flex gap-3.5 flex-wrap mt-9">
