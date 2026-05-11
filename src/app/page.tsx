@@ -9,7 +9,7 @@ import Marquee     from '@/components/Marquee'
 import IntroAbout  from '@/components/IntroAbout'
 import Work        from '@/components/Work'
 import About       from '@/components/About'
-import { Services, Process, Testimonials, Contact, Footer } from '@/components/Sections'
+import { Services, Process, Contact, Footer } from '@/components/Sections'
 
 export default function Home() {
   const [loaded, setLoaded] = useState(false)
@@ -27,7 +27,6 @@ export default function Home() {
       <About />
       <Services />
       <Process />
-      <Testimonials />
       <Contact />
       <Footer />
     </main>

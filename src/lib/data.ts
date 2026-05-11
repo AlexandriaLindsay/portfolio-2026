@@ -246,21 +246,21 @@ export const PROJECTS = [
     body: "Notion's growth is a case study in product virality. Their web presence is deceptively simple — clean, typographic, and relentlessly focused on 'show don't tell'.",
     featured: false,
   },
-  {
-    id: 'fortemicro',
-    section: '3d' as ProjectSection,
-    title: 'Forte Micro',
-    cat: 'DevTools · Cloud Platform',
-    desc: 'Deploy-to-production in seconds. WebGL animations, dark/light mode, and world-class developer-focused copy.',
-    url: 'https://fortemicro.com/',
-    tags: ['Next.js', 'Three.js', 'Edge Functions', 'A/B Testing'],
-    metrics: [
-      { n: '0.9s', l: 'TTFB globally' },
-      { n: '98',   l: 'Lighthouse Score' },
-    ],
-    body: "Vercel's site is its own best demo. Incremental static regeneration, edge rendering, and the boldest use of real-time data visualizations in the DevTools space.",
-    featured: false,
-  },
+  // {
+  //   id: 'fortemicro',
+  //   section: '3d' as ProjectSection,
+  //   title: 'Forte Micro',
+  //   cat: 'DevTools · Cloud Platform',
+  //   desc: 'Deploy-to-production in seconds. WebGL animations, dark/light mode, and world-class developer-focused copy.',
+  //   url: 'https://fortemicro.com/',
+  //   tags: ['Next.js', 'Three.js', 'Edge Functions', 'A/B Testing'],
+  //   metrics: [
+  //     { n: '0.9s', l: 'TTFB globally' },
+  //     { n: '98',   l: 'Lighthouse Score' },
+  //   ],
+  //   body: "Vercel's site is its own best demo. Incremental static regeneration, edge rendering, and the boldest use of real-time data visualizations in the DevTools space.",
+  //   featured: false,
+  // },
 ]
 
 export const SERVICES = [
@@ -271,32 +271,32 @@ export const SERVICES = [
   { num: '05', name: 'UX & Motion Design',             tag: 'GSAP · Framer' },
 ]
 
-export const TESTIMONIALS = [
-  {
-    text: 'The redesign increased our checkout completion by 280% in the first month. The ROI was immediate.',
-    name: 'SARAH CHEN',
-    role: 'CEO, Nexus Commerce',
-    init: 'SC',
-  },
-  {
-    text: "None of the other developers I've worked with come close to this craft level. The WebGL hero won us two awards.",
-    name: 'MARCO VITELLI',
-    role: 'Creative Director, Phantom Labs',
-    init: 'MV',
-  },
-  {
-    text: 'Landing page went from 1.2% to 6.8% conversion rate. Visible ROI within days of going live.',
-    name: 'JAMES PORTER',
-    role: 'Head of Growth, Velour SaaS',
-    init: 'JP',
-  },
-  {
-    text: 'A 98 Lighthouse score on a site processing thousands of real-time data points. Genuinely unreal.',
-    name: 'AISHA RAHMAN',
-    role: 'CTO, Aurum Finance',
-    init: 'AR',
-  },
-]
+// export const TESTIMONIALS = [
+//   {
+//     text: 'The redesign increased our checkout completion by 280% in the first month. The ROI was immediate.',
+//     name: 'SARAH CHEN',
+//     role: 'CEO, Nexus Commerce',
+//     init: 'SC',
+//   },
+//   {
+//     text: "None of the other developers I've worked with come close to this craft level. The WebGL hero won us two awards.",
+//     name: 'MARCO VITELLI',
+//     role: 'Creative Director, Phantom Labs',
+//     init: 'MV',
+//   },
+//   {
+//     text: 'Landing page went from 1.2% to 6.8% conversion rate. Visible ROI within days of going live.',
+//     name: 'JAMES PORTER',
+//     role: 'Head of Growth, Velour SaaS',
+//     init: 'JP',
+//   },
+//   {
+//     text: 'A 98 Lighthouse score on a site processing thousands of real-time data points. Genuinely unreal.',
+//     name: 'AISHA RAHMAN',
+//     role: 'CTO, Aurum Finance',
+//     init: 'AR',
+//   },
+// ]
 
 export const PROCESS = [
   { n: '01', t: 'Discover',   d: 'Deep-dive into your goals, users, and data. No assumptions — only evidence.' },

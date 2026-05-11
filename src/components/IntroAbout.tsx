@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Reveal from './Reveal'
-import Alex from '../assets/images/alex.jpg'
+import Alex from '../assets/images/alex.png'
 
 export default function IntroAbout() {
   const go = (id: string) =>

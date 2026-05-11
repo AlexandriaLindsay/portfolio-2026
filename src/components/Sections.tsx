@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Reveal from './Reveal'
-import { SERVICES, PROCESS, TESTIMONIALS } from '@/lib/data'
+import { SERVICES, PROCESS } from '@/lib/data'
 
 /* ── Services ── */
 export function Services() {
@@ -83,48 +83,48 @@ export function Process() {
 }
 
 /* ── Testimonials ── */
-export function Testimonials() {
-  return (
-    <section className="py-[120px] bg-white">
-      <div className="w-full max-w-[1400px] mx-auto px-[52px]">
-      <Reveal>
-        <div className="flex items-center gap-3.5 mb-12 font-mono text-[9px] tracking-[0.4em] text-accent uppercase">
-          <span className="w-6 h-px bg-accent inline-block" />
-          Social Proof
-        </div>
-      </Reveal>
-      <Reveal delay={0.05}>
-        <h2 className="font-display text-fg leading-none tracking-wide mb-16" style={{ fontSize: 'clamp(48px,7vw,106px)', lineHeight: '.88' }}>
-          CLIENTS<br /><span className="text-accent">LOVE IT</span>
-        </h2>
-      </Reveal>
+// export function Testimonials() {
+//   return (
+//     <section className="py-[120px] bg-white">
+//       <div className="w-full max-w-[1400px] mx-auto px-[52px]">
+//       <Reveal>
+//         <div className="flex items-center gap-3.5 mb-12 font-mono text-[9px] tracking-[0.4em] text-accent uppercase">
+//           <span className="w-6 h-px bg-accent inline-block" />
+//           Social Proof
+//         </div>
+//       </Reveal>
+//       <Reveal delay={0.05}>
+//         <h2 className="font-display text-fg leading-none tracking-wide mb-16" style={{ fontSize: 'clamp(48px,7vw,106px)', lineHeight: '.88' }}>
+//           CLIENTS<br /><span className="text-accent">LOVE IT</span>
+//         </h2>
+//       </Reveal>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-0.5">
-        {TESTIMONIALS.map((t, i) => (
-          <Reveal key={i} delay={i * 0.08}>
-            <div className="relative bg-bg-2 px-10 py-12 border border-accent/12 transition-shadow duration-400 hover:shadow-purple-sm">
-              <span className="absolute top-6 right-8 font-serif text-[72px] text-accent/10 leading-none">"</span>
-              <p className="relative z-10 font-serif italic text-fg-2 leading-[1.9] mb-8"
-                style={{ fontSize: 'clamp(14px,1.2vw,16px)' }}>
-                {t.text}
-              </p>
-              <div className="flex items-center gap-3.5">
-                <div className="w-[42px] h-[42px] rounded-full border-2 border-accent flex items-center justify-center font-display text-[15px] text-accent bg-accent-light flex-shrink-0">
-                  {t.init}
-                </div>
-                <div>
-                  <div className="font-mono text-[10px] tracking-[0.2em] text-fg uppercase">{t.name}</div>
-                  <div className="font-mono text-[9px] tracking-[0.1em] text-muted mt-0.5">{t.role}</div>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-      </div>
-    </section>
-  )
-}
+//       <div className="grid grid-cols-1 md:grid-cols-2 gap-0.5">
+//         {TESTIMONIALS.map((t, i) => (
+//           <Reveal key={i} delay={i * 0.08}>
+//             <div className="relative bg-bg-2 px-10 py-12 border border-accent/12 transition-shadow duration-400 hover:shadow-purple-sm">
+//               <span className="absolute top-6 right-8 font-serif text-[72px] text-accent/10 leading-none">"</span>
+//               <p className="relative z-10 font-serif italic text-fg-2 leading-[1.9] mb-8"
+//                 style={{ fontSize: 'clamp(14px,1.2vw,16px)' }}>
+//                 {t.text}
+//               </p>
+//               <div className="flex items-center gap-3.5">
+//                 <div className="w-[42px] h-[42px] rounded-full border-2 border-accent flex items-center justify-center font-display text-[15px] text-accent bg-accent-light flex-shrink-0">
+//                   {t.init}
+//                 </div>
+//                 <div>
+//                   <div className="font-mono text-[10px] tracking-[0.2em] text-fg uppercase">{t.name}</div>
+//                   <div className="font-mono text-[9px] tracking-[0.1em] text-muted mt-0.5">{t.role}</div>
+//                 </div>
+//               </div>
+//             </div>
+//           </Reveal>
+//         ))}
+//       </div>
+//       </div>
+//     </section>
+//   )
+// }
 
 /* ── Contact ── */
 export function Contact() {
@@ -245,15 +245,26 @@ export function Footer() {
         DEV<span className="text-accent-2">.</span>FOLIO
       </button>
       <span className="font-mono text-[9px] tracking-[0.2em] text-white/40">
-        © 2026 — Crafted with precision &amp; obsession
+        &copy; {new Date().getFullYear()} — Crafted with precision &amp; obsession
       </span>
       <div className="flex gap-6">
-        {['GitHub', 'Dribbble', 'LinkedIn', 'Twitter'].map(s => (
+        {[
+          {
+            label: 'GitHub',
+            url: 'github.com'
+          },
+
+          {
+            label: 'LinkedIn',
+            url: 'linkedin.com'
+          }
+
+        ].map((item, i) => (
           <a
-            key={s} href="#" onClick={e => e.preventDefault()} data-hover
+            key={i} href={`https://${item.url}`} target="_blank" rel="noreferrer noopener" data-hover
             className="font-mono text-[9px] tracking-[0.2em] text-white/40 uppercase hover:text-accent-2 transition-colors duration-300 cursor-none no-underline"
           >
-            {s}
+            {item.label}
           </a>
         ))}
       </div>

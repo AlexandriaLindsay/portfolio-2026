@@ -334,7 +334,7 @@ export default function Work() {
           </h2>
         </Reveal>
         <Reveal delay={0.08}>
-          <p className="flex items-center gap-2.5 font-serif text-[15px] text-muted mb-20 -mt-12">
+          <p className="flex items-center gap-2.5 font-serif text-[15px] text-muted mb-20 mt-10">
             <span className="w-5 h-px bg-accent inline-block flex-shrink-0" />
             Click any project to explore it live inside a browser
           </p>
