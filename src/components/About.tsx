@@ -94,14 +94,16 @@ export default function About() {
 
           <Reveal delay={0.1}>
             <p className="font-serif text-muted leading-[1.95] mb-5" style={{ fontSize: 'clamp(15px,1.3vw,17px)' }}>
-              I'm obsessed with the intersection of{' '}
-              <strong className="text-fg italic font-normal">beautiful 3D motion</strong>{' '}
-              and measurable performance. Every pixel and millisecond is intentional.
+              I'm focused on the intersection of{' '}
+              <strong className="text-fg italic font-normal">clean design</strong>{' '}
+              &amp;{' '}
+              <strong className="text-fg italic font-normal">real performance.</strong>{' '}
+              Every pixel and millisecond is intentional.
             </p>
             <p className="font-serif text-muted leading-[1.95]" style={{ fontSize: 'clamp(15px,1.3vw,17px)' }}>
               Specializing in{' '}
-              <strong className="text-fg italic font-normal">conversion rate optimization</strong>{' '}
-              — using data, psychology, and flawless UX to turn traffic into revenue.
+              <strong className="text-fg italic font-normal">conversion rate optimization</strong>
+              , using data, psychology, and flawless UX to turn traffic into revenue.
             </p>
 
             <div className="flex flex-wrap gap-2.5 mt-8">

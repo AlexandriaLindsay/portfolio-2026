@@ -72,8 +72,8 @@ export default function IntroAbout() {
               Not just beautiful, but measurably and provably effective at driving revenue.
             </p>
             <p className="font-serif text-muted leading-[1.95]" style={{ fontSize: 'clamp(15px,1.3vw,17px)' }}>
-              With <strong className="text-fg italic font-normal">8+ years of real-world client work</strong>, I've built
-              everything from real-time telematics dashboards to custom business solutions, always asking:{' '}
+              With <strong className="text-fg italic font-normal">9+ years of real-world client work</strong>, I've built
+              everything from telematics dashboards to custom business solutions, always asking:{' '}
               <em>will this move the needle? </em>
               Beyond design and development, I integrate websites with core business systems such as ERP, CRM, inventory, and
               operational software to streamline workflows, reduce manual work, and create systems that scale.

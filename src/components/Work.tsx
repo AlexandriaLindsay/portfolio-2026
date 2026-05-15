@@ -5,7 +5,7 @@ import NextImage from 'next/image'
 import Reveal from './Reveal'
 import { PROJECTS, SECTIONS } from '@/lib/data'
 
-type Project = typeof PROJECTS[0] & { image?: string; disclaimer?: boolean }
+type Project = typeof PROJECTS[0] & { image?: string; badge?: boolean }
 
 const DOT_COLORS = ['#ff5f57', '#febc2e', '#28c840']
 
@@ -61,7 +61,7 @@ function ProjectCard({ project, onOpen }: { project: Project; onOpen: (p: Projec
                 quality={100}
                 className="object-cover object-top transition-transform duration-[600ms] ease-spring group-hover:scale-[1.03]"
               />
-              {project.disclaimer && (
+              {project.badge && (
                 <div className="absolute bottom-2 left-2 bg-fg/70 px-2 py-1 backdrop-blur-sm">
                   <span className="font-mono text-[8px] tracking-[0.15em] text-white/80 uppercase italic">
                     * Image edited to protect confidentiality
@@ -271,16 +271,6 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                 </div>
               </div>
             )}
-          </div>
-
-          {/* Metrics */}
-          <div className="grid grid-cols-2 gap-10 mb-8">
-            {project.metrics.map((m, i) => (
-              <div key={i}>
-                <div className="font-display text-accent leading-none" style={{ fontSize: 52 }}>{m.n}</div>
-                <div className="font-mono text-[9px] tracking-[0.3em] text-muted uppercase mt-1">{m.l}</div>
-              </div>
-            ))}
           </div>
 
           <p className="font-serif text-muted leading-[1.9] mb-4" style={{ fontSize: 'clamp(14px,1.2vw,16px)' }}>
