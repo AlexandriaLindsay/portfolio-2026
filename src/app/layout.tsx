@@ -2,17 +2,16 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'DevFolio — Full-Stack Developer & Conversion Specialist',
+  title: 'Builds by Alex — Web Development & Digital Marketing',
   description:
-    'Full-stack developer specializing in high-performance web experiences, 3D/WebGL, and conversion rate optimization. Turning visitors into measurable revenue.',
-  keywords: ['full-stack developer', 'WebGL', 'Three.js', 'CRO', 'conversion optimization', 'React', 'Next.js'],
+    'Builds by Alex creates modern, high-performance websites and digital marketing solutions that help businesses attract customers and grow online.',
   openGraph: {
-    title: 'DevFolio — Full-Stack Developer & Conversion Specialist',
-    description: 'High-performance web experiences that convert.',
+    title: 'Builds by Alex — Web Development & Digital Marketing',
+    description:
+      'Custom websites, SEO, and digital marketing solutions designed to help businesses generate more leads.',
     type: 'website',
   },
-}
-
+};
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">

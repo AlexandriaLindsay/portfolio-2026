@@ -128,12 +128,13 @@ function ProjectCard({ project, onOpen }: { project: Project; onOpen: (p: Projec
 function SectionCarousel({ projects, onOpen }: { projects: Project[]; onOpen: (p: Project) => void }) {
   const trackRef = useRef<HTMLDivElement>(null)
   const [canPrev, setCanPrev] = useState(false)
-  const [canNext, setCanNext] = useState(projects.length > 2)
+  const [canNext, setCanNext] = useState(projects.length > 1)
 
   function slide(dir: -1 | 1) {
     const el = trackRef.current
     if (!el) return
-    const cardW = el.offsetWidth / 2 + 14
+    const firstCard = el.firstElementChild as HTMLElement | null
+    const cardW = firstCard ? firstCard.offsetWidth + 28 : el.offsetWidth
     el.scrollBy({ left: dir * cardW, behavior: 'smooth' })
   }
 
@@ -154,7 +155,7 @@ function SectionCarousel({ projects, onOpen }: { projects: Project[]; onOpen: (p
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' } as React.CSSProperties}
       >
         {projects.map(p => (
-          <div key={p.id + p.section} className="flex-shrink-0" style={{ width: 'calc(50% - 14px)' }}>
+          <div key={p.id + p.section} className="flex-shrink-0 w-full md:w-[calc(50%-14px)]">
             <ProjectCard project={p as Project} onOpen={onOpen} />
           </div>
         ))}

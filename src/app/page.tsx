@@ -10,6 +10,7 @@ import IntroAbout  from '@/components/IntroAbout'
 import Work        from '@/components/Work'
 import About       from '@/components/About'
 import { Services, Process, Contact, Footer } from '@/components/Sections'
+import ScrollToTop from '@/components/ScrollToTop'
 
 export default function Home() {
   const [loaded, setLoaded] = useState(false)
@@ -19,8 +20,7 @@ export default function Home() {
       {!loaded && <Loader onDone={() => setLoaded(true)} />}
       <Cursor />
       <Nav />
-
-      <Hero        loaded={loaded} />
+      <Hero loaded={loaded} />
       <Marquee />
       <IntroAbout />
       <Work />
@@ -29,6 +29,7 @@ export default function Home() {
       <Process />
       <Contact />
       <Footer />
+      <ScrollToTop />
     </main>
   )
 }

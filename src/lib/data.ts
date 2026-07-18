@@ -215,12 +215,13 @@ export const PROJECTS = [
 ]
 
 export const SERVICES = [
-  { num: '01', name: 'Conversion-Driven Development', tag: 'CRO · Strategy' },
-  { num: '02', name: '3D & WebGL Experiences',        tag: 'Three.js · GLSL' },
-  { num: '03', name: 'Full-Stack Architecture',        tag: 'React · Node · SQL' },
-  { num: '04', name: 'Performance Engineering',        tag: 'Core Web Vitals' },
-  { num: '05', name: 'UX & Motion Design',             tag: 'GSAP · Framer' },
-]
+  { num: '01', name: 'Custom Website Development', tag: 'Modern · Responsive' },
+  { num: '02', name: 'Local SEO & Search Visibility', tag: 'Google · Rankings' },
+  { num: '03', name: 'Lead Generation & Conversion', tag: 'Landing Pages · CRO' },
+  { num: '04', name: 'Website Performance & SEO', tag: 'Core Web Vitals' },
+  { num: '05', name: 'Digital Marketing', tag: 'Google Ads · Analytics' },
+];
+
 
 // export const TESTIMONIALS = [
 //   {
@@ -250,11 +251,28 @@ export const SERVICES = [
 // ]
 
 export const PROCESS = [
-  { n: '01', t: 'Discover',   d: 'Deep-dive into your goals, users, and data. No assumptions — only evidence.' },
-  { n: '02', t: 'Strategize', d: 'Map the funnel. Identify friction. Define measurable success metrics.' },
-  { n: '03', t: 'Build',      d: 'Pixel-perfect, performant, and production-ready from day one.' },
-  { n: '04', t: 'Optimize',   d: 'Launch, measure, iterate. Data-driven refinement until numbers sing.' },
-]
+  {
+    n: '01',
+    t: 'Discovery',
+    d: 'Learn about your business, target audience, competitors, and goals to create a strategy that drives results.'
+  },
+  {
+    n: '02',
+    t: 'Strategy',
+    d: 'Plan your website, SEO, and digital marketing campaign to attract qualified leads and maximize conversions.'
+  },
+  {
+    n: '03',
+    t: 'Launch',
+    d: 'Build a fast, responsive website optimized for search engines, user experience, and lead generation.'
+  },
+  {
+    n: '04',
+    t: 'Grow',
+    d: 'Track performance, improve rankings, optimize campaigns, and continuously increase traffic and conversions.'
+  },
+];
+
 
 export const SKILLS = [
   'React / Next.js', 'AI', 'Three.js', 'Node.js', 'PostgreSQL',
@@ -270,4 +288,17 @@ export const STATS = [
   { n: '$12M',s: '+', l: 'Revenue generated' },
 ]
 
-export const STACK = ['PHP','Three.js','React','Next.js','GSAP','Node.js','SQL','TypeScript','CRO','A/B Testing','Tailwind','PHP','CMS']
+export const STACK = [
+  'Custom Websites',
+  'WordPress',
+  'SEO',
+  'Local SEO',
+  'Google Ads',
+  'Google Analytics',
+  'Landing Pages',
+  'Conversion Optimization',
+  'Page Speed',
+  'Responsive Design',
+  'Website Maintenance',
+  'CMS'
+];

@@ -38,8 +38,8 @@ export default function Hero({ loaded }: HeroProps) {
     const W = () => canvas.parentElement?.clientWidth  ?? window.innerWidth
     const H = () => canvas.parentElement?.clientHeight ?? window.innerHeight
 
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true })
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true, powerPreference: 'high-performance' })
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5))
     renderer.setSize(W(), H(), false)
     renderer.toneMapping = THREE.ACESFilmicToneMapping
     renderer.toneMappingExposure = 1.1
@@ -49,7 +49,7 @@ export default function Hero({ loaded }: HeroProps) {
     cam.position.z = 6
 
     // Particles
-    const N  = 2400
+    const N  = 1000
     const pg = new THREE.BufferGeometry()
     const pp = new Float32Array(N * 3)
     const ps = new Float32Array(N)
@@ -92,7 +92,7 @@ export default function Hero({ loaded }: HeroProps) {
     scene.add(pts)
 
     // Torus knot
-    const kg = new THREE.TorusKnotGeometry(1.7, .4, 220, 26, 2, 3)
+    const kg = new THREE.TorusKnotGeometry(1.7, .4, 120, 16, 2, 3)
     const km = new THREE.ShaderMaterial({
       uniforms: { uT: { value: 0 } },
       vertexShader: `
@@ -136,9 +136,14 @@ export default function Hero({ loaded }: HeroProps) {
     scene.add(new THREE.AmbientLight(0xffffff, .05))
 
     const mouse = new THREE.Vector2()
+    let mouseTick = false
     const onM = (e: MouseEvent) => {
-      mouse.x = (e.clientX / window.innerWidth  - .5) * 14
-      mouse.y = -(e.clientY / window.innerHeight - .5) * 9
+      if (mouseTick) return; mouseTick = true
+      requestAnimationFrame(() => {
+        mouse.x = (e.clientX / window.innerWidth  - .5) * 14
+        mouse.y = -(e.clientY / window.innerHeight - .5) * 9
+        mouseTick = false
+      })
     }
     window.addEventListener('mousemove', onM, { passive: true })
 
@@ -207,7 +212,7 @@ export default function Hero({ loaded }: HeroProps) {
         {/* Eyebrow */}
         <div className="hero-anim-1 font-mono text-[10px] tracking-[0.4em] text-accent-2 uppercase flex items-center gap-4 mb-6">
           <span className="w-10 h-px bg-accent-2 inline-block flex-shrink-0" />
-          Full-Stack · WebGL · Conversion Specialist
+          Fast, Reliable Business Solutions        
         </div>
 
         {/* H1 */}
@@ -226,12 +231,11 @@ export default function Hero({ loaded }: HeroProps) {
         {/* Sub */}
         <p className="hero-anim-3 font-serif text-white/60 mt-7 max-w-[440px] leading-[1.95]"
           style={{ fontSize: 'clamp(14px, 1.3vw, 18px)' }}>
-          I engineer high-performance web experiences where stunning 3D motion
-          meets ruthless conversion science — turning visitors into measurable revenue.
+          I build high-performance websites that combine thoughtful design, fast performance, and seamless user experiences, helping businesses turn visitors into customers.
         </p>
 
         {/* Stats */}
-        <div className="hero-anim-4 flex gap-12 mt-12 flex-wrap">
+        {/* <div className="hero-anim-4 flex gap-12 mt-12 flex-wrap">
           {STATS.map(({ n, s, l }) => {
             const m = n.match(/^(\D*)(\d+)(\D*)$/)
             const pre = m?.[1] ?? ''
@@ -246,7 +250,7 @@ export default function Hero({ loaded }: HeroProps) {
               </div>
             )
           })}
-        </div>
+        </div> */}
 
         {/* CTAs */}
         <div className="hero-anim-5 flex gap-4 flex-wrap mt-11">

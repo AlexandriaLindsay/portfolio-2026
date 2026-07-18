@@ -11,8 +11,8 @@ function DNAScene() {
   useEffect(() => {
     const canvas = cr.current; if (!canvas) return
     const W = () => canvas.clientWidth, H = () => canvas.clientHeight
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true })
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true, powerPreference: 'high-performance' })
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5))
     renderer.setSize(W(), H(), false)
     const scene = new THREE.Scene()
     const cam = new THREE.PerspectiveCamera(50, W() / H(), .1, 100)
@@ -50,15 +50,21 @@ function DNAScene() {
     const onR = () => { cam.aspect = W() / H(); cam.updateProjectionMatrix(); renderer.setSize(W(), H(), false) }
     window.addEventListener('resize', onR)
 
-    let raf: number; const clk = new THREE.Clock()
+    let raf: number; let running = true; const clk = new THREE.Clock()
     const tick = () => {
+      if (!running) return
       raf = requestAnimationFrame(tick); const t = clk.getElapsedTime()
       grp.rotation.y = t * .42 + mouse.x * .3
       grp.rotation.x = mouse.y * .18
       renderer.render(scene, cam)
     }
     tick()
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('mousemove', onM); window.removeEventListener('resize', onR); renderer.dispose() }
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !running) { running = true; tick() }
+      else if (!entry.isIntersecting && running) { running = false; cancelAnimationFrame(raf) }
+    }, { threshold: 0 })
+    io.observe(canvas)
+    return () => { running = false; cancelAnimationFrame(raf); io.disconnect(); window.removeEventListener('mousemove', onM); window.removeEventListener('resize', onR); renderer.dispose() }
   }, [])
 
   return <canvas ref={cr} className="w-full h-full block" />

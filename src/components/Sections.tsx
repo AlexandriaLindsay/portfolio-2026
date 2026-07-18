@@ -131,13 +131,25 @@ export function Contact() {
   const [f, setF]       = useState({ name: '', email: '', budget: '', msg: '' })
   const [sent, setSent] = useState(false)
   const [busy, setBusy] = useState(false)
+  const [err,  setErr]  = useState('')
 
   const h   = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setF(x => ({ ...x, [e.target.name]: e.target.value }))
   const sub = async (e: React.FormEvent) => {
-    e.preventDefault(); setBusy(true)
-    await new Promise(r => setTimeout(r, 1400))
-    setBusy(false); setSent(true)
+    e.preventDefault(); setBusy(true); setErr('')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(f),
+      })
+      if (!res.ok) throw new Error('Failed to send')
+      setSent(true)
+    } catch {
+      setErr('Something went wrong. Please email me directly.')
+    } finally {
+      setBusy(false)
+    }
   }
 
   return (
@@ -160,7 +172,7 @@ export function Contact() {
           </Reveal>
           <Reveal delay={0.1}>
             {[
-              ['✉', 'Email',    'hello@devfolio.io'],
+              ['✉', 'Email',    'alexandria.kuxhouse@hotmail.com'],
               ['📍', 'Location', 'Remote · Worldwide'],
               ['⏱', 'Response', 'Within 24 hours'],
             ].map(([ic, l, v]) => (
@@ -218,6 +230,9 @@ export function Contact() {
                 <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-accent transition-all duration-500 peer-focus:w-full" />
               </div>
 
+              {err && (
+                <p className="font-mono text-[9px] tracking-[0.2em] text-red-500 uppercase mb-3">{err}</p>
+              )}
               <button
                 type="submit" disabled={busy} data-hover
                 className="w-full mt-3 px-5 py-5 bg-accent text-white font-mono text-[11px] tracking-[0.35em] uppercase hover:bg-fg transition-colors duration-300 cursor-none disabled:opacity-60"
@@ -242,10 +257,10 @@ export function Footer() {
     <footer className="py-[52px] bg-fg border-t border-white/5">
       <div className="w-full max-w-[1400px] mx-auto px-[52px] flex items-center justify-between flex-wrap gap-6">
       <button onClick={() => go('home')} data-hover className="font-display text-[18px] tracking-[0.35em] text-white cursor-none">
-        DEV<span className="text-accent-2">.</span>FOLIO
+        BUILDS BY <span className="text-accent-2">ALEX</span>
       </button>
       <span className="font-mono text-[9px] tracking-[0.2em] text-white/40">
-        &copy; {new Date().getFullYear()} — Crafted with precision &amp; obsession
+        &copy; {new Date().getFullYear()} — Crafted with precision
       </span>
       <div className="flex gap-6">
         {[
