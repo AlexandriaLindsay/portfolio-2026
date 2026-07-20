@@ -257,7 +257,7 @@ export function Footer() {
     <footer className="py-[52px] bg-fg border-t border-white/5">
       <div className="w-full max-w-[1400px] mx-auto px-[52px] flex items-center justify-between flex-wrap gap-6">
       <button onClick={() => go('home')} data-hover className="font-display text-[18px] tracking-[0.35em] text-white cursor-none">
-        BUILDS BY <span className="text-accent-2">ALEX</span>
+        SITES BY <span className="text-accent-2">ALEX</span>
       </button>
       <span className="font-mono text-[9px] tracking-[0.2em] text-white/40">
         &copy; {new Date().getFullYear()} — Crafted with precision

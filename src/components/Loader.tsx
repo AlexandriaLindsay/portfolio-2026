@@ -25,7 +25,7 @@ export default function Loader({ onDone }: { onDone: () => void }) {
       className={`fixed inset-0 z-[9000] bg-white flex flex-col items-center justify-center transition-opacity duration-700 ${out ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
     >
       <div className="font-display text-accent tracking-[0.7em]" style={{ fontSize: 'clamp(40px,7vw,80px)' }}>
-        BUILDS BY <span className="text-accent/60">ALEX</span>
+        SITES BY <span className="text-accent/60">ALEX</span>
       </div>
 
       <div className="mt-12 w-64 h-px bg-accent/20 overflow-hidden">

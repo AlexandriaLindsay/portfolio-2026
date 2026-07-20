@@ -31,7 +31,7 @@ export default function Nav() {
         data-hover
         className={`font-display text-[20px] tracking-[0.35em] cursor-none transition-colors duration-500 ${scrolled ? 'text-fg' : 'text-white'}`}
       >
-        BUILDS BY <span className="text-accent">ALEX</span>
+        SITES BY <span className="text-accent">ALEX</span>
       </button>
 
       {/* Links */}

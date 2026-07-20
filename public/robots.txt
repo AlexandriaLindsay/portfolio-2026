@@ -4,4 +4,4 @@ Allow: /
 # Block API routes from indexing
 Disallow: /api/
 
-Sitemap: https://buildsbyalex.ca/sitemap.xml
+Sitemap: https://sitesbyalex.ca/sitemap.xml
