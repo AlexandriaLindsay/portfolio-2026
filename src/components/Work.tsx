@@ -166,7 +166,7 @@ function SectionCarousel({ projects, onOpen }: { projects: Project[]; onOpen: (p
         <button
           onClick={() => slide(-1)}
           data-hover
-          className="absolute -left-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-accent/15 flex items-center justify-center text-accent hover:bg-accent hover:text-white hover:border-accent transition-all duration-200 cursor-none shadow-purple-sm"
+          className="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-accent/15 items-center justify-center text-accent hover:bg-accent hover:text-white hover:border-accent transition-all duration-200 cursor-none shadow-purple-sm"
         >
           ←
         </button>
@@ -175,7 +175,7 @@ function SectionCarousel({ projects, onOpen }: { projects: Project[]; onOpen: (p
         <button
           onClick={() => slide(1)}
           data-hover
-          className="absolute -right-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-accent/15 flex items-center justify-center text-accent hover:bg-accent hover:text-white hover:border-accent transition-all duration-200 cursor-none shadow-purple-sm"
+          className="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-accent/15 items-center justify-center text-accent hover:bg-accent hover:text-white hover:border-accent transition-all duration-200 cursor-none shadow-purple-sm"
         >
           →
         </button>
@@ -227,7 +227,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           </button>
         </div>
 
-        <div className="px-10 py-10 pb-12">
+        <div className="px-5 py-6 pb-8 sm:px-10 sm:py-10 sm:pb-12">
           <div className="flex items-center gap-2.5 mb-1 font-mono text-[9px] tracking-[0.3em] text-accent uppercase">
             <span className="w-5 h-px bg-accent inline-block" />
             {project.cat}
@@ -311,8 +311,8 @@ export default function Work() {
   const [active, setActive] = useState<Project | null>(null)
 
   return (
-    <section id="work" className="py-[120px] bg-white">
-      <div className="w-full max-w-[1400px] mx-auto px-[52px]">
+    <section id="work" className="py-16 md:py-[120px] bg-white">
+      <div className="w-full max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-[52px]">
         <Reveal>
           <div className="flex items-center gap-3.5 mb-12 font-mono text-[9px] tracking-[0.4em] text-accent uppercase">
             <span className="w-6 h-px bg-accent inline-block" />
@@ -325,7 +325,7 @@ export default function Work() {
           </h2>
         </Reveal>
         <Reveal delay={0.08}>
-          <p className="flex items-center gap-2.5 font-serif text-[15px] text-muted mb-20 mt-10">
+          <p className="flex items-center gap-2.5 font-serif text-[15px] text-muted mb-10 md:mb-20 mt-6 md:mt-10">
             <span className="w-5 h-px bg-accent inline-block flex-shrink-0" />
             Below is a sample of my work as I've worked on over 200+ websites.<br />Click any project to explore it live inside a browser
           </p>
@@ -335,7 +335,7 @@ export default function Work() {
           const projects = PROJECTS.filter(p => p.section === sec.key)
           if (!projects.length) return null
           return (
-            <div key={sec.key} className={si > 0 ? 'mt-24' : ''}>
+            <div key={sec.key} className={si > 0 ? 'mt-14 md:mt-24' : ''}>
               <Reveal>
                 <div className="flex items-end justify-between gap-4 mb-8 border-b border-accent/10 pb-5">
                   <div>

@@ -24,11 +24,11 @@ export default function Loader({ onDone }: { onDone: () => void }) {
     <div
       className={`fixed inset-0 z-[9000] bg-white flex flex-col items-center justify-center transition-opacity duration-700 ${out ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
     >
-      <div className="font-display text-accent tracking-[0.7em]" style={{ fontSize: 'clamp(40px,7vw,80px)' }}>
+      <div className="font-display text-accent tracking-[0.4em] sm:tracking-[0.7em] text-center px-6" style={{ fontSize: 'clamp(26px,7vw,80px)' }}>
         SITES BY <span className="text-accent/60">ALEX</span>
       </div>
 
-      <div className="mt-12 w-64 h-px bg-accent/20 overflow-hidden">
+      <div className="mt-12 w-48 sm:w-64 h-px bg-accent/20 overflow-hidden">
         <div
           className="h-full bg-accent loader-bar-transition"
           style={{ width: `${progress}%` }}

@@ -24,12 +24,12 @@ export default function Nav() {
           : 'py-7 border-b border-transparent'
       }`}
     >
-      <div className="w-full max-w-[1400px] mx-auto px-[52px] flex items-center justify-between">
+      <div className="w-full max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-[52px] flex items-center justify-between">
       {/* Logo */}
       <button
         onClick={() => go('home')}
         data-hover
-        className={`font-display text-[20px] tracking-[0.35em] cursor-none transition-colors duration-500 ${scrolled ? 'text-fg' : 'text-white'}`}
+        className={`font-display text-[18px] sm:text-[20px] tracking-[0.35em] cursor-none transition-colors duration-500 ${scrolled ? 'text-fg' : 'text-white'}`}
       >
         SITES BY <span className="text-accent">ALEX</span>
       </button>
@@ -53,7 +53,7 @@ export default function Nav() {
       <button
         onClick={() => go('contact')}
         data-hover
-        className="font-mono text-[10px] tracking-[0.3em] uppercase px-7 py-3 bg-accent border border-accent text-white hover:bg-fg hover:border-fg transition-colors duration-300 cursor-none"
+        className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.3em] uppercase px-4 sm:px-7 py-2.5 sm:py-3 bg-accent border border-accent text-white hover:bg-fg hover:border-fg transition-colors duration-300 cursor-none"
       >
         Let's Talk
       </button>

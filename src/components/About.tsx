@@ -72,9 +72,9 @@ function DNAScene() {
 
 export default function About() {
   return (
-    <section id="about" className="py-[120px] bg-bg-2">
-      <div className="w-full max-w-[1400px] mx-auto px-[52px]">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+    <section id="about" className="py-16 md:py-[120px] bg-bg-2">
+      <div className="w-full max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-[52px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-24 items-center">
         <Reveal>
           <div className="w-full" style={{ aspectRatio: '1' }}>
             <DNAScene />

@@ -8,18 +8,18 @@ export default function IntroAbout() {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
   return (
-    <section className="relative overflow-hidden bg-bg-2 border-b border-accent/10 py-[100px]">
+    <section className="relative overflow-hidden bg-bg-2 border-b border-accent/10 py-14 md:py-[100px]">
       {/* Glow orb */}
       <div
         className="pointer-events-none absolute -top-52 -right-52 w-[600px] h-[600px] rounded-full"
         style={{ background: 'radial-gradient(circle, rgba(139,53,192,.07) 0%, transparent 70%)' }}
       />
 
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-[52px] grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-[52px] grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
 
         {/* Photo */}
         <Reveal>
-          <div className="relative photo-frame-offset max-w-[400px]">
+          <div className="relative photo-frame-offset max-w-[340px] sm:max-w-[400px] mx-auto md:mx-0">
             <div className="relative overflow-hidden" style={{ aspectRatio: '3/4' }}>
               <Image src={Alex} alt="Alex" fill quality={100} sizes="400px" className="object-cover object-top" />
             </div>

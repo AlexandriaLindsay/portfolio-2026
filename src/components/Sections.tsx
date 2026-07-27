@@ -7,16 +7,16 @@ import { SERVICES, PROCESS } from '@/lib/data'
 /* ── Services ── */
 export function Services() {
   return (
-    <section id="services" className="py-[120px] bg-white">
-      <div className="w-full max-w-[1400px] mx-auto px-[52px]">
+    <section id="services" className="py-16 md:py-[120px] bg-white">
+      <div className="w-full max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-[52px]">
       <Reveal>
-        <div className="flex items-center gap-3.5 mb-12 font-mono text-[9px] tracking-[0.4em] text-accent uppercase">
+        <div className="flex items-center gap-3.5 mb-6 md:mb-12 font-mono text-[9px] tracking-[0.4em] text-accent uppercase">
           <span className="w-6 h-px bg-accent inline-block" />
           What I Do
         </div>
       </Reveal>
       <Reveal delay={0.05}>
-        <h2 className="font-display text-fg leading-none tracking-wide mb-16" style={{ fontSize: 'clamp(48px,7vw,106px)', lineHeight: '.88' }}>
+        <h2 className="font-display text-fg leading-none tracking-wide mb-8 md:mb-16" style={{ fontSize: 'clamp(40px,7vw,106px)', lineHeight: '.88' }}>
           SERVICES
         </h2>
       </Reveal>
@@ -27,7 +27,7 @@ export function Services() {
             <div className="svc-row flex items-center justify-between py-9 border-b border-accent/12 cursor-none group">
               <span className="font-mono text-[10px] tracking-[0.3em] text-muted w-14 flex-shrink-0">{num}</span>
               <span
-                className="font-display text-fg flex-1 px-8 tracking-wide group-hover:text-accent group-hover:translate-x-2 transition-all duration-300"
+                className="font-display text-fg flex-1 px-2 md:px-8 tracking-wide group-hover:text-accent group-hover:translate-x-2 transition-all duration-300"
                 style={{ fontSize: 'clamp(26px, 3.8vw, 54px)' }}
               >
                 {name}
@@ -46,16 +46,16 @@ export function Services() {
 /* ── Process ── */
 export function Process() {
   return (
-    <section id="process" className="py-[120px] bg-bg-2">
-      <div className="w-full max-w-[1400px] mx-auto px-[52px]">
+    <section id="process" className="py-16 md:py-[120px] bg-bg-2">
+      <div className="w-full max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-[52px]">
       <Reveal>
-        <div className="flex items-center gap-3.5 mb-12 font-mono text-[9px] tracking-[0.4em] text-accent uppercase">
+        <div className="flex items-center gap-3.5 mb-6 md:mb-12 font-mono text-[9px] tracking-[0.4em] text-accent uppercase">
           <span className="w-6 h-px bg-accent inline-block" />
           How I Work
         </div>
       </Reveal>
       <Reveal delay={0.05}>
-        <h2 className="font-display text-fg leading-none tracking-wide mb-16" style={{ fontSize: 'clamp(48px,7vw,106px)', lineHeight: '.88' }}>
+        <h2 className="font-display text-fg leading-none tracking-wide mb-8 md:mb-16" style={{ fontSize: 'clamp(40px,7vw,106px)', lineHeight: '.88' }}>
           THE<br /><span className="text-accent">PROCESS</span>
         </h2>
       </Reveal>
@@ -88,13 +88,13 @@ export function Process() {
 //     <section className="py-[120px] bg-white">
 //       <div className="w-full max-w-[1400px] mx-auto px-[52px]">
 //       <Reveal>
-//         <div className="flex items-center gap-3.5 mb-12 font-mono text-[9px] tracking-[0.4em] text-accent uppercase">
+//         <div className="flex items-center gap-3.5 mb-6 md:mb-12 font-mono text-[9px] tracking-[0.4em] text-accent uppercase">
 //           <span className="w-6 h-px bg-accent inline-block" />
 //           Social Proof
 //         </div>
 //       </Reveal>
 //       <Reveal delay={0.05}>
-//         <h2 className="font-display text-fg leading-none tracking-wide mb-16" style={{ fontSize: 'clamp(48px,7vw,106px)', lineHeight: '.88' }}>
+//         <h2 className="font-display text-fg leading-none tracking-wide mb-8 md:mb-16" style={{ fontSize: 'clamp(40px,7vw,106px)', lineHeight: '.88' }}>
 //           CLIENTS<br /><span className="text-accent">LOVE IT</span>
 //         </h2>
 //       </Reveal>
@@ -153,13 +153,13 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-[120px] bg-bg-2">
-      <div className="w-full max-w-[1400px] mx-auto px-[52px]">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
+    <section id="contact" className="py-16 md:py-[120px] bg-bg-2">
+      <div className="w-full max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-[52px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
         {/* Left */}
         <div>
           <Reveal>
-            <div className="flex items-center gap-3.5 mb-12 font-mono text-[9px] tracking-[0.4em] text-accent uppercase">
+            <div className="flex items-center gap-3.5 mb-6 md:mb-12 font-mono text-[9px] tracking-[0.4em] text-accent uppercase">
               <span className="w-6 h-px bg-accent inline-block" />
               Get In Touch
             </div>
@@ -254,8 +254,8 @@ export function Footer() {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
   return (
-    <footer className="py-[52px] bg-fg border-t border-white/5">
-      <div className="w-full max-w-[1400px] mx-auto px-[52px] flex items-center justify-between flex-wrap gap-6">
+    <footer className="py-10 md:py-[52px] bg-fg border-t border-white/5">
+      <div className="w-full max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-[52px] flex items-center justify-between flex-wrap gap-6">
       <button onClick={() => go('home')} data-hover className="font-display text-[18px] tracking-[0.35em] text-white cursor-none">
         SITES BY <span className="text-accent-2">ALEX</span>
       </button>
@@ -266,13 +266,13 @@ export function Footer() {
         {[
           {
             label: 'GitHub',
-            url: 'github.com'
+            url: 'https://github.com/AlexandriaLindsay'
           },
 
-          {
-            label: 'LinkedIn',
-            url: 'linkedin.com'
-          }
+          // {
+          //   label: 'LinkedIn',
+          //   url: 'linkedin.com'
+          // }
 
         ].map((item, i) => (
           <a

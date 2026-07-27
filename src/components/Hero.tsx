@@ -201,14 +201,14 @@ export default function Hero({ loaded }: HeroProps) {
   return (
     <section
       id="home"
-      className="relative h-[117vh] overflow-hidden flex flex-col justify-end"
-      style={{ background: '#1a0a2e', paddingBottom: '80px' }}
+      className="relative h-[117vh] overflow-hidden flex flex-col justify-start pt-[130px] md:pt-[96px]"
+      style={{ background: '#1a0a2e' }}
     >
       {/* 3D Canvas */}
       <canvas ref={canvasRef} id="hero-canvas" />
 
       {/* Text content */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-[52px]">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-[52px]">
         {/* Eyebrow */}
         <div className="hero-anim-1 font-mono text-[10px] tracking-[0.4em] text-accent-2 uppercase flex items-center gap-4 mb-6">
           <span className="w-10 h-px bg-accent-2 inline-block flex-shrink-0" />
@@ -218,9 +218,9 @@ export default function Hero({ loaded }: HeroProps) {
         {/* H1 */}
         <h1
           className="hero-anim-2 font-display text-white leading-none tracking-tight"
-          style={{ fontSize: 'clamp(72px, 11vw, 175px)', lineHeight: '0.88' }}
+          style={{ fontSize: 'clamp(52px, 11vw, 175px)', lineHeight: '0.88' }}
         >
-          TEST SITES<br />
+          BUILDING SITES<br />
           THAT{' '}
           <em className="not-italic" style={{ color: '#a855f7' }}>CONVERT</em>
           <br />
@@ -253,18 +253,18 @@ export default function Hero({ loaded }: HeroProps) {
         </div> */}
 
         {/* CTAs */}
-        <div className="hero-anim-5 flex gap-4 flex-wrap mt-11">
+        <div className="hero-anim-5 flex gap-3 sm:gap-4 mt-11">
           <button
             onClick={() => go('work')}
             data-hover
-            className="font-mono text-[10px] tracking-[0.3em] uppercase px-8 py-3.5 bg-accent border border-accent text-white hover:bg-white hover:text-accent hover:border-white transition-colors duration-300 cursor-none"
+            className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.3em] uppercase px-5 sm:px-8 py-3.5 bg-accent border border-accent text-white hover:bg-white hover:text-accent hover:border-white transition-colors duration-300 cursor-none"
           >
             View Work →
           </button>
           <button
             onClick={() => go('contact')}
             data-hover
-            className="font-mono text-[10px] tracking-[0.3em] uppercase px-8 py-3.5 bg-transparent border border-white/25 text-white/70 hover:border-white/70 hover:text-white transition-colors duration-300 cursor-none"
+            className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.3em] uppercase px-5 sm:px-8 py-3.5 bg-transparent border border-white/25 text-white/70 hover:border-white/70 hover:text-white transition-colors duration-300 cursor-none"
           >
             Start a Project
           </button>
@@ -272,7 +272,7 @@ export default function Hero({ loaded }: HeroProps) {
       </div>
 
       {/* Scroll hint */}
-      <div className="hero-anim-scroll absolute right-[52px] bottom-20 z-10 flex flex-col items-center gap-3">
+      <div className="hero-anim-scroll absolute right-5 sm:right-[52px] bottom-20 z-10 hidden sm:flex flex-col items-center gap-3">
         <div className="scroll-pulse w-px h-[60px]" style={{ background: 'linear-gradient(#a855f7, transparent)' }} />
         <span className="font-mono text-[9px] tracking-[0.3em] text-white/40 [writing-mode:vertical-rl]">Scroll</span>
       </div>
