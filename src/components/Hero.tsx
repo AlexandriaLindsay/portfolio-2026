@@ -220,7 +220,7 @@ export default function Hero({ loaded }: HeroProps) {
           className="hero-anim-2 font-display text-white leading-none tracking-tight"
           style={{ fontSize: 'clamp(72px, 11vw, 175px)', lineHeight: '0.88' }}
         >
-          BUILDING SITES<br />
+          TEST SITES<br />
           THAT{' '}
           <em className="not-italic" style={{ color: '#a855f7' }}>CONVERT</em>
           <br />
